@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
           rel="stylesheet">
-  <script type=text/javascript>
-    $(function() {
-      $('a#calculate').bind('click', function() {
-        $.getJSON('/_get_diff', {
-          lon: $('input[name="lon"]').val(),
-          lat: $('input[name="lat"]').val()
-        }, function(data) {
-          $("#result").text(data.result);
+          
+    <link rel="stylesheet" href="{{ url_for('static', filename='leaflet.css') }}" />
+    <style>
+        #mapContainer { height: 500px ; width: 600px;}
+    </style>
+    
+    <script src="{{ url_for('static', filename='leaflet.js') }}"></script>   
+      
+   
+    <script type=text/javascript>
+      $(function() {
+        $('a#calculate').bind('click', function() {
+          $.getJSON('/_get_diff', {
+            lon: $('input[name="lon"]').val(),
+            lat: $('input[name="lat"]').val()
+          }, function(data) {
+            $("#result").text(data.result);
+          });
+          return false;
         });
-        return false;
       });
-    });
-  </script>
+    </script>
+   
+    <title>VERTCON-web</title> 
   </head>
+  
   <body>
+    
     <div class="container">
+      
       <div class="header">
         <h3 class="text-muted">VERTCON-web</h3>
       </div>
       <hr/>
+      
       <div>
-      <p>
-    lat: <input type="text" size="5" name="lat" value="47.0">
-    lon: <input type="text" size="5" name="lon" value ="-121.0"> =
-    <span id="result">?</span>
-    <p><a href="javascript:void();" id="calculate">Get difference</a>
-      </form>
+        <p>
+        lat: <input type="text" size="5" name="lat" value="47.0">
+        lon: <input type="text" size="5" name="lon" value ="-121.0"> =
+        <span id="result">?</span>
+        <p><a href="javascript:void();" id="calculate"><button type="button" class="btn btn-primary">Get difference</button></a>
+        </form>
       </div>
+      
+    <div id="mapContainer">
     </div>
+    </div>
+    
+    
+    <script src="{{ url_for('static', filename='index.js') }}"></script>    
+
   </body>
 </html>
