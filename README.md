@@ -5,4 +5,6 @@ The [original VERTCON](http://www.ngs.noaa.gov/TOOLS/Vertcon/vertcon.html) is de
 
 VERTCON represents the difference between the NAVD 1988 and NGVD 1929  datums. To go from NGVD29 -> NAVD88, add the value returned. To go from NAVD88 -> NGVD29, subtract the value. The value for a given point is bilinearly interpolated from the values of the surrounding cells.
 
+Requires GDAL, python-gdal, NumPy and Flask.
+
 
