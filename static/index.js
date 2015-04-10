@@ -13,6 +13,11 @@ function onMapClick(e) {
         .setLatLng(e.latlng)
 		.setContent(e.latlng.toString())
 		.openOn(map);
-		}
+	
+	var latbox = document.getElementById('latbox');
+	var lonbox = document.getElementById('lonbox');
+	latbox.value = e.latlng.lat;
+	lonbox.value = e.latlng.lng;
+	}
 
 map.on('click', onMapClick);

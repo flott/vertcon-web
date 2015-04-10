@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='leaflet.css') }}" />
     <style>
         #mapContainer { height: 500px ; width: 600px;}
+        #result { color: red; }
     </style>
     
     <script src="{{ url_for('static', filename='leaflet.js') }}"></script>   
@@ -21,7 +22,7 @@
             lon: $('input[name="lon"]').val(),
             lat: $('input[name="lat"]').val()
           }, function(data) {
-            $("#result").text(data.result);
+            $("#result").text(Math.round(data.result));
           });
           return false;
         });
@@ -42,10 +43,11 @@
       
       <div>
         <p>
-        lat: <input type="text" size="5" name="lat" value="47.0">
-        lon: <input type="text" size="5" name="lon" value ="-121.0"> =
-        <span id="result">?</span>
-        <p><a href="javascript:void();" id="calculate"><button type="button" class="btn btn-primary">Get difference</button></a>
+        Latitude: <input type="text" size="10" id="latbox" name="lat" value="47.0">
+        Longitude: <input type="text" size="10" id="lonbox" name="lon" value ="-121.0">
+        <br/>
+        <span id="result">?</span> mm
+        <p><a href="javascript:void();" id="calculate"><button type="button" class="btn btn-primary">Get NAVD88 - NGVD29 difference</button></a>
         </form>
       </div>
       
