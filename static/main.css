@@ -1,0 +1,40 @@
+body{
+    font-family: Arial;
+}
+
+#mapContainer {
+    height: 600px; 
+    width: 100%;
+}
+
+#manDatumShift {
+    color: red;
+}
+
+#manShiftedElev{
+    color:salmon;
+}
+
+#dataEntry {
+    padding: 10px;
+    margin: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+}
+
+#userZentry {
+    padding-left: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+fieldset {
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+}
+

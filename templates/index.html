@@ -3,55 +3,76 @@
   <head>
     <meta charset="utf-8">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
-          rel="stylesheet">
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
           
     <link rel="stylesheet" href="{{ url_for('static', filename='leaflet.css') }}" />
-    <style>
-        #mapContainer { height: 500px ; width: 600px;}
-        #result { color: red; }
-    </style>
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+
     <script src="{{ url_for('static', filename='leaflet.js') }}"></script>   
-      
-   
-    <script type=text/javascript>
-      $(function() {
-        $('a#calculate').bind('click', function() {
-          $.getJSON('/_get_diff', {
-            lon: $('input[name="lon"]').val(),
-            lat: $('input[name="lat"]').val()
-          }, function(data) {
-            $("#result").text(Math.round(data.result));
-          });
-          return false;
-        });
-      });
-    </script>
    
     <title>VERTCON-web</title> 
   </head>
   
   <body>
     
-    <div class="container">
-      
-      <div class="header">
-        <h3 class="text-muted">VERTCON-web</h3>
+      <div>
+        <h1>VERTCON-web</h1>
       </div>
-      <hr/>
+
       
       <div>
-        <p>
-        Latitude: <input type="text" size="20" id="latbox" name="lat" value="47.0"></br>
-        Longitude: <input type="text" size="20" id="lonbox" name="lon" value ="-121.0"><br/>
-        <span id="result">?</span> mm
-        <p><a href="javascript:void();" id="calculate"><button type="button" class="btn btn-primary">Get NAVD88 - NGVD29 difference</button></a>
-        </form>
+      <form id="globalOpts">
+      <fieldset>
+        <legend><b>Global Options</b></legend>
+        <div>
+        <b>Units:</b>
+          <label>
+            <input type="radio" name="unitOptions" id="unitOptions1" value="m" checked> Meters
+          </label>
+          <label>
+            <input type="radio" name="unitOptions" id="unitOptions2" value="ft"> Feet
+          </label>
+        </div>
+        <div>
+        <b>Conversion direction:</b>
+          <label>
+            <input type="radio" name="dirOptions" id="dirOptions1" value="1" checked> NGVD29 → NAVD88 &nbsp; &nbsp; &nbsp;
+          </label>
+          
+          <label>
+            <input type="radio" name="dirOptions" id="dirOptions2" value="-1"> NAVD88 → NGVD29
+          </label>
+        </div>
+        <div id="adjZcheck">
+          <input type="checkbox" id="useUserElev" name="useUserElev" checked="checked"> 
+          <label for="useUserElev">Adjust a specific elevation</label>
+        </div>
+        <div id="userZentry" class="hidden">
+          <label>Elevation:
+            <input type="text" id="userElev" name="userElev" value="0.00">
+          </label>
+        </div>
+      </fieldset>
+      </form>
       </div>
+
+      <p>
       
-    <div id="mapContainer">
-    </div>
+      <div id="dataEntry">
+        <div>
+        <b>Manual Entry:</b>
+          <label>Latitude:</label>
+          <input type="text" size="20" id="latbox" name="lat" value="47.0">
+          <label>Longitude:</label>
+          <input type="text" size="20" id="lonbox" name="lon" value ="-121.0">
+          <h3 id="manDatumShift">Datum Shift: <span id="result">________</span> <span class="manUnits">m</span></h3>
+          <p id="manShiftedElev" class="hidden">Adjusted elevation: <span id="shiftedElev">___</span> <span class="manUnits">m</span></p>
+        <p><a href="javascript:void();" id="calculate"><button type="button">Calculate datum transformation</button></a>
+      </div>
+    
+    <hr/>
+    <h3 class="text-muted">Interactive interface: click on the map for values and transformation</h3>
+    <div id="mapContainer"></div>
     </div>
     
     
