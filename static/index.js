@@ -94,11 +94,10 @@ function onMapClick(e) {
           .setLatLng(e.latlng)
 		      .setContent("<p>Latitude: " + e.latlng.lat + "</br>" +
 		                  "Longitude: " + e.latlng.lng + "</br>" +
-		                  "Datum shift: " + transform.toFixed(3) + "</br>" +
-		                  "Adjusted elevation: " + shiftedElev.toFixed(3)
+		                  "Datum shift: " + transform.toFixed(3) + " " + unit_system + "</br>" +
+		                  "Adjusted elevation: " + shiftedElev.toFixed(3) + " " + unit_system
 		                  )
 		      .openOn(map);
-		      
         }
         
         else {
@@ -106,15 +105,11 @@ function onMapClick(e) {
           .setLatLng(e.latlng)
 		      .setContent("<p>Latitude: " + e.latlng.lat + "</br>" +
 		                  "Longitude: " + e.latlng.lng + "</br>" +
-		                  "Datum shift: " + transform.toFixed(3) + "</br>"
+	                    "Datum shift: " + transform.toFixed(3) + " " + unit_system + "</br>"
 		                  )
 		      .openOn(map);
         }
-        
     });
-  
-
-
 	}
 
 map.on('click', onMapClick);
