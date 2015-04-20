@@ -1,0 +1,17 @@
+body{
+    font-family: Arial;
+}
+
+.calc-chevron {
+    width: 3.5%;
+}
+
+#mapContainer {
+    height: 600px; 
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
