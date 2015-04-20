@@ -11,14 +11,15 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>   
 
-    <title>VERTCON-web</title> 
+    <title>VERTCON+</title> 
   </head>
 
   <body>
+  <div class="container-fluid">
     <div class="page-header">
       <h1>
-        VERTCON-web
-        <small>VERTCON on a webmap!</small>
+        VERTCON+
+        <small><a href="http://www.ngs.noaa.gov/TOOLS/Vertcon/vertcon.html">VERTCON</a> on a webmap</small>
       </h1>
     </div>
 
@@ -33,10 +34,10 @@
               <b>Units:</b>
               <div class="btn-group" role="group">
                 <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-primary active">
-                    <input type="radio" name="unitOptions" id="unitOptions1" value="m" >Meters
+                  <label class="btn btn-default">
+                    <input type="radio" name="unitOptions" id="unitOptions1" value="m" checked>Meters
                   </label>
-                  <label class="btn btn-primary">
+                  <label class="btn btn-default active">
                     <input type="radio" name="unitOptions" id="unitOptions2" value="ft"> Feet
                   </label>
                 </div>
@@ -47,16 +48,16 @@
               <b>Direction:</b>
                 <div class="btn-group" role="group">
                   <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                      <input type="radio" name="dirOptions" id="dirOptions1" value="1" > NGVD29 → NAVD88
+                    <label class="btn btn-default active">
+                      <input type="radio" name="dirOptions" id="dirOptions1" value="1" checked> NGVD29 → NAVD88
                     </label>
-                    <label class="btn btn-primary">
+                    <label class="btn btn-default">
                       <input type="radio" name="dirOptions" id="dirOptions2" value="-1"> NAVD88 → NGVD29
                     </label>
                   </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div id="adjZcheck" class="input-group">
                 <span class="input-group-addon">
                   <label for="useUserElev">Adjust a Specific Location:</label>
@@ -123,6 +124,6 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>    
-
+  </div>
   </body>
 </html>

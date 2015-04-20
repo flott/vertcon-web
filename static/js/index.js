@@ -2,6 +2,9 @@ var unit_system = $('input[name=unitOptions]:checked', '#globalOpts').val();
 
 var direction = $('input[name=dirOptions]:checked', '#globalOpts').val();
 
+console.log(unit_system);
+console.log(direction);
+
 $("#useUserElev").prop('checked', false);
 var useUserElev = $("#useUserElev").prop("checked");
 var userElev = $("#userElev").val();
@@ -61,13 +64,15 @@ $('#calculate').bind('click', function() {
 
 var map = L.map('mapContainer').setView([47.65, -122.4], 11);
 
+L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmxvdHQiLCJhIjoiQ3hUMU9UQSJ9.vpXm8h8Dz52ZcbmRbWgzkg').addTo(map);
 
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    maxZoom: 18
-}).addTo(map);
+// L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+//     maxZoom: 18
+// }).addTo(map);
 
 var popup = L.popup();
+
 function onMapClick(e) {
     var transform = 0.0;
     
