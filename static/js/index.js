@@ -28,7 +28,7 @@ $("#useUserElev").on('change', function() {
 });
 
 $(function() {
-$('a#calculate').bind('click', function() {
+$('#calculate').bind('click', function() {
   $.getJSON('/_get_diff', {
     lon: $("#lonbox").val(),
     lat: $("#latobx").val()
