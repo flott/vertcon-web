@@ -91,7 +91,6 @@ function onMapClick(e) {
         transform = transform * direction;
     
         if (useUserElev == true){
-          console.log("toot")
           userElev = $("#userElev").val();
           shiftedElev = transform + Number(userElev);
         
@@ -99,7 +98,7 @@ function onMapClick(e) {
           .setLatLng(e.latlng)
 		      .setContent("<p>Latitude: " + e.latlng.lat + "</br>" +
 		                  "Longitude: " + e.latlng.lng + "</br>" +
-		                  "Datum shift: " + transform.toFixed(3) + " " + unit_system + "</br>" +
+		                  "<b>Datum shift: " + transform.toFixed(3) + " " + unit_system + "</b></br>" +
 		                  "Adjusted elevation: " + shiftedElev.toFixed(3) + " " + unit_system
 		                  )
 		      .openOn(map);
@@ -110,7 +109,7 @@ function onMapClick(e) {
           .setLatLng(e.latlng)
 		      .setContent("<p>Latitude: " + e.latlng.lat + "</br>" +
 		                  "Longitude: " + e.latlng.lng + "</br>" +
-	                    "Datum shift: " + transform.toFixed(3) + " " + unit_system + "</br>"
+	                    "<b>Datum shift: " + transform.toFixed(3) + " " + unit_system + "</b></br>"
 		                  )
 		      .openOn(map);
         }

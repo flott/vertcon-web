@@ -17,8 +17,7 @@ app = Flask(__name__)
 def hello():
     return render_template('index.html')
 
-# Route that will process the AJAX request, sum up two
-# integer numbers (defaulted to zero) and return the
+# Route that will process the AJAX request and return the
 # result as a proper JSON response (Content-Type, etc.)
 @app.route('/_get_diff')
 def get_diff():

@@ -3,12 +3,10 @@
   <head>
     <meta charset="utf-8">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/leaflet.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/leaflet.css') }}" />
     <script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>   
 
     <title>VERTCON+</title> 
@@ -60,7 +58,7 @@
             <div class="col-md-4">
               <div id="adjZcheck" class="input-group">
                 <span class="input-group-addon">
-                  <label for="useUserElev">Adjust a Specific Location:</label>
+                  <label for="useUserElev">Adjust a specific elevation:</label>
                   <input type="checkbox" id="useUserElev" name="useUserElev"> 
                 </span>
                 <input type="text" class="form-control" id="userElev" name="userElev" value="0.00">
