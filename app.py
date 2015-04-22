@@ -4,7 +4,7 @@ import os
 # We'll render HTML templates and access data sent by GET
 # using the request object from flask. jsonify is required
 # to send JSON as a response of a request
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for, redirect
 
 from bilinear import bilinear
 
@@ -14,8 +14,10 @@ app = Flask(__name__)
 # jQuery is loaded to execute the request and update the
 # value of the operation
 @app.route('/')
-def hello():
-    return render_template('index.html')
+def root():
+    #return render_template('index.html')
+    #return app.send_static_file('static/index.html')
+    return redirect(url_for('static', filename='index.html'))
 
 # Route that will process the AJAX request and return the
 # result as a proper JSON response (Content-Type, etc.)

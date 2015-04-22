@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <script src="js/leaflet.js"></script>
+
+    <title>VERTCON+</title> 
+  </head>
+
+  <body>
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>
+        VERTCON+
+        <small><a href="http://www.ngs.noaa.gov/TOOLS/Vertcon/vertcon.html">VERTCON</a> on a webmap</small>
+      </h1>
+    </div>
+
+    <form id="globalOpts">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><span class="glyphicon glyphicon-wrench"></span> Global Options</h4>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-2">
+              <b>Units:</b>
+              <div class="btn-group" role="group">
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-default">
+                    <input type="radio" name="unitOptions" id="unitOptions1" value="m">Meters
+                  </label>
+                  <label class="btn btn-default active">
+                    <input type="radio" name="unitOptions" id="unitOptions2" value="ft"checked> Feet
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <b>Direction:</b>
+                <div class="btn-group" role="group">
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                      <input type="radio" name="dirOptions" id="dirOptions1" value="1" checked> NGVD29 → NAVD88
+                    </label>
+                    <label class="btn btn-default">
+                      <input type="radio" name="dirOptions" id="dirOptions2" value="-1"> NAVD88 → NGVD29
+                    </label>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div id="adjZcheck" class="input-group">
+                <span class="input-group-addon">
+                  <label for="useUserElev">Adjust a specific elevation:</label>
+                  <input type="checkbox" id="useUserElev" name="useUserElev"> 
+                </span>
+                <input type="text" class="form-control" id="userElev" name="userElev" value="0.00">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="panel-group" id="accordion" role="tablist">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab">
+          <h4 class="panel-title">
+            <span class="glyphicon glyphicon-th-list"></span>
+            <a data-toggle="collapse" data-parent="#accordion" href="#manual">
+              Manual Location Entry
+            </a>
+          </h4>
+        </div>
+        <div id="manual" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="col-md-1">Latitude:</label>
+              <input type="text" size="20" id="latbox" name="lat" value="47.0">
+            </div>
+            <div class="form-group">
+              <label class="col-md-1">Longitude:</label>
+              <input type="text" size="20" id="lonbox" name="lon" value ="-121.0">
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <button type="button" id="calculate" class="btn btn-primary">Calculate datum transformation</button>
+              </div>
+              <div class="col-md-1 calc-chevron">
+                <h4><span class="glyphicon glyphicon-chevron-right"></span></h4>
+              </div>
+              <div class="col-md-5 well well-sm">
+                <h4 id="manDatumShift">Datum Shift: <span id="result">________</span> <span class="manUnits">m</span></h4>
+                <div id="manShiftedElev" class="hidden">Adjusted elevation: <span id="shiftedElev">___</span> <span class="manUnits">m</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab">
+          <h4 class="panel-title">
+            <span class="glyphicon glyphicon-move"></span>
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#map">
+              Interactive interface: click on the map for values and transformation
+            </a>
+          </h4>
+        </div>
+        <div id="map" class="panel-collapse collapse in" role="tabpanel">
+          <div class="panel-body" id="mapContainer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>    
+  </div>
+  </body>
+</html>
