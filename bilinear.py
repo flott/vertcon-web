@@ -2,17 +2,28 @@
 # http://gis.stackexchange.com/questions/7611/bilinear-interpolation-of-point-data-on-a-raster-in-python
 # using the equations found at http://en.wikipedia.org/wiki/Bilinear_interpolation
 
-from osgeo import gdal
-from numpy import array
+# from osgeo import gdal
+from numpy import load, array
 from numpy import floor, NAN
 
-# Read raster
-source = gdal.Open('vertcon_88-29.tif')
-nx, ny = source.RasterXSize, source.RasterYSize
-gt = source.GetGeoTransform()
-band_array = source.GetRasterBand(1).ReadAsArray()
-# Close raster
-source = None
+# Read raster:
+# source = gdal.Open('vertcon_88-29.tif')
+# band_array = source.GetRasterBand(1).ReadAsArray()
+# Close raster:
+# source = None
+
+# Load up raster from saved numpy array instead
+band_array = load('vertcon_np.npy')
+
+# Raster size
+# This is hardcoded from the output of:
+# nx, ny = source.RasterXSize, source.RasterYSize
+nx = 1181
+ny = 521
+
+# Hardcoded result of GeoTransform information
+# gt = source.GetGeoTransform()
+gt = (-125.025, 0.050000000000000, 0.0, 50.0250000000000, 0.0, -0.050000000000000)
 
 # Compute mid-point grid spacings
 ax = array([gt[0] + ix*gt[1] + gt[1]/2.0 for ix in range(nx)])
