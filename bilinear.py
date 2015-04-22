@@ -3,8 +3,7 @@
 # using the equations found at http://en.wikipedia.org/wiki/Bilinear_interpolation
 
 # from osgeo import gdal
-from numpy import load, array
-from numpy import floor, NAN
+from numpy import load, array, floor, NAN
 
 # Read raster:
 # source = gdal.Open('vertcon_88-29.tif')
