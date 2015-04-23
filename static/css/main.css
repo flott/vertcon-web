@@ -15,3 +15,6 @@ body{
     display: none;
 }
 
+.panel-group .panel-heading:hover {
+  background-color: #dfdfdf;
+}

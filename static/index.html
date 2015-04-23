@@ -7,6 +7,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="shortcut icon" href="favicon.ico">
     <script src="js/leaflet.js"></script>
 
     <title>VERTCON+</title> 
@@ -16,15 +17,17 @@
   <div class="container-fluid">
     <div class="page-header">
       <h1>
-        VERTCON+
+        <img src="vc-plus_icon-04.png" height=60em /> VERTCON+
         <small><a href="http://www.ngs.noaa.gov/TOOLS/Vertcon/vertcon.html">VERTCON</a> on a webmap</small>
       </h1>
     </div>
 
     <form id="globalOpts">
-      <div class="panel panel-default">
+      <div class="panel panel-info">
         <div class="panel-heading">
-          <h4><span class="glyphicon glyphicon-wrench"></span> Global Options</h4>
+          <h4>
+            <!-- <span class="glyphicon glyphicon-wrench"></span> -->
+            <b>Global Options</b></h4>
         </div>
         <div class="panel-body">
           <div class="row">
@@ -73,7 +76,7 @@
       <div class="panel panel-default">
         <div class="panel-heading" role="tab">
           <h4 class="panel-title">
-            <span class="glyphicon glyphicon-th-list"></span>
+            <span class="glyphicon glyphicon-pencil"></span>
             <a data-toggle="collapse" data-parent="#accordion" href="#manual">
               Manual Location Entry
             </a>
@@ -108,7 +111,7 @@
       <div class="panel panel-default">
         <div class="panel-heading" role="tab">
           <h4 class="panel-title">
-            <span class="glyphicon glyphicon-move"></span>
+            <span class="glyphicon glyphicon-globe"></span>
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#map">
               Interactive interface: click on the map for values and transformation
             </a>
