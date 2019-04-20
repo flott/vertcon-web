@@ -1,7 +1,5 @@
 # VERTCON+
 
-Viewable at [http://vertconplus.herokuapp.com/](http://vertconplus.herokuapp.com/)
-
 ## Project background
 A user-friendly implementation of the NGS VERTCON transformation from NGVD 1929 to NAVD 1988 vertical datums in the contiguous United States. 
 
