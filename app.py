@@ -30,10 +30,10 @@ def get_diff():
 # How to run the main Flask app in Cloud9
 if __name__ == '__main__':
     app.run(
-        host=os.getenv('IP', '0.0.0.0'), 
+        host=os.getenv('IP', '0.0.0.0'),
         port = int(os.getenv('PORT', 8080)),
         debug=True
     )
-    
+
 # otherwise:
 # app.run(debug=True)
