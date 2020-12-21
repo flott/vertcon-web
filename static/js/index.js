@@ -64,7 +64,7 @@ $('#calculate').bind('click', function() {
 
 var map = L.map('mapContainer').setView([47.65, -122.4], 11);
 
-L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmxvdHQiLCJhIjoiQ3hUMU9UQSJ9.vpXm8h8Dz52ZcbmRbWgzkg').addTo(map);
+L.tileLayer('https://c.tile.openstreetmap.org/${z}/${x}/${y}.png').addTo(map);
 
 // L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
