@@ -64,7 +64,7 @@ $('#calculate').bind('click', function() {
 
 var map = L.map('mapContainer').setView([47.65, -122.4], 11);
 
-L.tileLayer('https://c.tile.openstreetmap.org/${z}/${x}/${y}.png').addTo(map);
+L.tileLayer('https://c.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 // L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
